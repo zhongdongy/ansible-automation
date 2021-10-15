@@ -1,0 +1,15 @@
+---
+- name: Deploy blog
+  hosts: blog_server
+  remote_user: root
+
+  tasks:
+  - name: Pull content
+    ansible.builtin.git:
+      repo: 'https://gitee.com/zhongdongy/zhongdongy.git'
+      dest: '/var/www/html/zhongdongy'
+      update: yes
+      remote: origin
+      force: yes
+      clone: no
+
